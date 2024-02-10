@@ -2,12 +2,17 @@ const express = require('express')
 const app = express()
 const dotenv=require('dotenv')
 dotenv.config({path:'./.env'})
+
 const web = require('./routes/web')
 const connectDb = require('./Db/connectDb')
 const fileUpload = require('express-fileupload')
 const cookieParser = require('cookie-parser')
 const flash = require('connect-flash')
 const cors = require('cors')
+
+
+
+
 app.use(fileUpload({useTempFiles:true}))
 // app.set('view engine','ejs')
 app.use(express.static('public'))
