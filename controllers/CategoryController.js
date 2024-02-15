@@ -49,7 +49,7 @@ class CategoryController
         try 
         {
             const data = await CategoryModel.find()
-            res.status(402)
+            res.status(200)
             .json({sucess:true,data})
 
             // res.render('Category/categoryDisplay',{d:data}) 
@@ -65,7 +65,7 @@ class CategoryController
         try
         {
            const data =  await CategoryModel.findByIdAndDelete(req.params.id)
-           res.status(403).json({success:true,data})
+           res.status(200).json({success:true,data})
         //    res.redirect('/categorydisplay')
         }
         catch(error)
@@ -79,7 +79,7 @@ class CategoryController
         try 
         {
             const data = await CategoryModel.findById(req.params.id)
-            res.status(404).json({sucess:true,data})
+            res.status(200).json({sucess:true,data})
             // console.log(data)
             // res.render('Category/categoryEdit',{d:data})
         }
@@ -120,7 +120,7 @@ class CategoryController
         }
         const up = await CategoryModel.findByIdAndUpdate(req.params.id,imgdata)
         await up.save();
-        res.status(404).json({success:true,up})
+        res.status(200).json({success:true,up})
         // res.redirect('/categorydisplay')
     }
             
