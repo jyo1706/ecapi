@@ -19,4 +19,10 @@ router.get('/categorydisplay',CategoryController.display)
 router.get('/categorydelete/:id',CategoryController.delete)
 router.get('/categoryedit/:id',CategoryController.edit)
 router.post('/categoryupdate/:id',CategoryController.update)
+
+//product 
+router.post('/productinsert',ProductController.insert)
+router.get('/productdisplay',ProductController.display)
+router.post('/productupdate/:id',ProductController.update)
+
 module.exports = router
