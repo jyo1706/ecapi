@@ -22,7 +22,7 @@ router.get('/categoryedit/:id',CategoryController.edit)
 router.post('/categoryupdate/:id',CategoryController.update)
 
 //product 
-router.post('/productinsert',ProductController.insert)
+router.post('/productinsert',ProductController.productinsert)
 router.get('/productdisplay',ProductController.display)
 router.post('/productupdate/:id',ProductController.update)
 
