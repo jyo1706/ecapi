@@ -48,6 +48,33 @@ class ProductController
        console.log(error)    
     }
    }
+
+     static view =async(req,res,id)=>
+    {
+        try 
+        {
+         const data = await ProductModel.findById(req.params.id)
+         res.status(200).json({sucess:true,data})
+            
+        } 
+        catch (error) 
+        {
+            
+        }
+    }
+    static delete = async(req,res,id)=>
+   {
+    try
+    {
+        const data = await ProductController.findByIdAndDelete(req.params.id)
+        res.status(200).json({sucess:true,data})
+    }
+    catch(error)
+    {
+        console.log(error)
+    }
+   }
+    
    static update = async(req,res,id)=>
    {
    try
