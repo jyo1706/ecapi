@@ -24,6 +24,8 @@ router.post('/categoryupdate/:id',CategoryController.update)
 //product 
 router.post('/productinsert',ProductController.productinsert)
 router.get('/productdisplay',ProductController.display)
+router.get('/productview',ProductController.view)
+router.get('/productdelete',ProductController.delete)
 router.post('/productupdate/:id',ProductController.update)
 
 module.exports = router
