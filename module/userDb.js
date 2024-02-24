@@ -36,6 +36,11 @@ const userSchema = mongoose.Schema({
             type:String,
         }
     },
+    role:
+    {
+        type:String,
+        default:'user'
+    }
 },{timestamps:true})
 const userModel = mongoose.model('user',userSchema)
 module.exports=userModel
