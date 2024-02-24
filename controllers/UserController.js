@@ -1,13 +1,12 @@
 const cloudinary = require("cloudinary").v2;
 const userModel = require("../module/userDb");
 const bcrypt = require("bcrypt");
-const jwt = require('jsonwebtoken')
+const jwt = require("jsonwebtoken");
 cloudinary.config({
   cloud_name: "deqjjzjbh",
   api_key: "618227314277568",
   api_secret: "UUvM_uxm9lm5RiaXw_5zgwwlIQs",
 });
-
 
 class UserController {
   static home = async (req, res) => {
@@ -27,9 +26,9 @@ class UserController {
     // console.log(file)
     if (name && email && password && cpassword && mobile) {
       const checkEmail = await userModel.findOne({ email: email });
-      console.log(checkEmail);
+      // console.log(checkEmail);
       if (checkEmail) {
-        res.status(101).json({ sucess: true, message: "Email already exit" });
+        res.status(409).json({ sucess: true, message: "Email already exit" });
       } else {
         if (password == cpassword) {
           try {
@@ -51,13 +50,13 @@ class UserController {
               },
             });
             await user.save();
-            res.status(401).json({ success: true, user });
+            res.status(200).json({ success: true, user });
             // res.redirect('/');
           } catch (error) {
             console.log(error);
           }
         } else {
-          res.status(457).json({
+          res.status(401).json({
             success: true,
             message: "password and cpassword are not match",
           });
@@ -65,7 +64,7 @@ class UserController {
       }
     } else {
       res
-        .status(101)
+        .status(400)
         .json({ success: "failed", message: "All fields are required" });
     }
   };
@@ -78,54 +77,42 @@ class UserController {
       console.log(error);
     }
   };
-  static loginverify = async(req,res)=>
-  {
-    const {email,password} =req.body
-   
- 
-  
-    try
-    {
-      if(email && password)
-    {
-      const data = await userModel.findOne({email:email})
-       if(data)
-       { 
-        const verifypassword = await bcrypt.compare(password,data.password)
-      
-        if(verifypassword)
-        {
-            const token = await jwt.sign({ID:data._id},"jyo@345")
-            // console.log(token)
-            res.cookie("token",token)
-            res.status(741).json({sucess:true,message:"login successfully",token})
-        }
-        else
-        {
-         res.status(784).
-         json({status:"failed",message:"password not coreect"})
-        }
-       }
-       else
-       {
-          res.status(785).json({success:"failed",message:"Email does'nt Exit"})
-       }
-       
-       
-    }
-    else
-    {
-      
-         res.status(250).
-         json({success:"hi",message:"All fields are required"})
-    }
-    }
-    catch(error)
-    {
-       console.log(error)
-    }
+  static loginverify = async (req, res) => {
+    const { email, password } = req.body;
 
-  }
+    try 
+    {
+      if (email && password) {
+        const data = await userModel.findOne({ email: email });
+        if (data) {
+          const verifypassword = await bcrypt.compare(password, data.password);
+
+          if (verifypassword) {
+            const token = await jwt.sign({ ID: data._id }, "jyo@345");
+            // console.log(token)
+            res.cookie("token", token);
+            res
+              .status(200)
+              .json({ sucess: true, message: "login successfully", token });
+          } else {
+            res
+              .status(401)
+              .json({ status: true, message: "password not coreect" });
+          }
+        } else {
+          res
+            .status(785)
+            .json({ success: true, message: "Email does'nt Exit" });
+        }
+      } else {
+        res
+          .status(400)
+          .json({ success: true, message: "All fields are required" });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 module.exports = UserController;
