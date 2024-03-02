@@ -10,7 +10,7 @@ const router = express.Router()
 router.get('/',UserController.home);
 router.post('/resinsert',UserController.insert)
 router.get('/userdisplay',UserController.display)
-router.post('/loginverify',auth,UserController.loginverify)
+router.post('/loginverify',UserController.loginverify)
 
 //Category
 
