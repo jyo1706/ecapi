@@ -88,7 +88,7 @@ class UserController {
           const verifypassword = await bcrypt.compare(password, data.password);
 
           if (verifypassword) {
-            const token = await jwt.sign({ ID: data._id }, "jyo@345");
+            const token =  jwt.sign({ ID: data._id }, "jyo@345");
             // console.log(token)
             res.cookie("token", token);
             res
