@@ -17,7 +17,7 @@ const auth = async(req,res,next)=>
         }
         else
         {
-            res.status(784).
+            res.status(401).
             json({status:"failed",message:"unauth user"})
         }
     }
