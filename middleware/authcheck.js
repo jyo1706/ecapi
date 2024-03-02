@@ -11,8 +11,9 @@ const auth = async(req,res,next)=>
         if(token)
         {
             const verifytoken =  jwt.verify(token,"jyo@345")
-            console.log(verifytoken.ID)
+            // console.log(verifytoken.ID)
             const data = await userModel.findOne(_id:verifytoken.ID)
+              req.user =user
              next()
         }
         else
