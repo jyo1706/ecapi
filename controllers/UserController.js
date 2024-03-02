@@ -93,21 +93,22 @@ class UserController {
             res.cookie("token", token);
             res
               .status(201)
-              .json({ sucess: true, message: "login successfully", token });
+              .send({ sucess: true, message: "login successfully", token });
+            
           } else {
             res
               .status(401)
-              .json({ status: true, message: "password not coreect" });
+              .send({ status: true, message: "password not coreect" });
           }
         } else {
           res
             .status(785)
-            .json({ success: true, message: "Email does'nt Exit" });
+            .send({ success: true, message: "Email does'nt Exit" });
         }
       } else {
         res
           .status(400)
-          .json({ success: true, message: "All fields are required" });
+          .send({ success: true, message: "All fields are required" });
       }
     } catch (error) {
       console.log(error);
