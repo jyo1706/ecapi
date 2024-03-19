@@ -11,6 +11,8 @@ router.get('/',UserController.home);
 router.post('/resinsert',UserController.insert)
 router.get('/userdisplay',UserController.display)
 router.post('/loginverify',auth,UserController.loginverify)
+router.get('/me',auth,UserController.getdetail)
+           
 
 //Category
 
