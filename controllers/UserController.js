@@ -120,7 +120,7 @@ class UserController {
       try
       {
        const {id,name,email} = req.data
-        const user = await userModel.findbById(req.data.id)
+        const user = await userModel.findById(req.data.id)
         consoe.log("heelo auth")
         res.status(201).json({
           status:'success',
