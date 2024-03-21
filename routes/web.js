@@ -14,8 +14,8 @@ router.post('/loginverify',UserController.loginverify)
 router.get('/me',auth,UserController.getuserdetail)
 router.get('/logout',UserController.logout)
 router.get('/changepassword',auth,UserController.change_password)
-router.get('/updateprofile',auth,UserController.update_profile)
-           
+router.get('/updateprofile',auth,UserController. profile_update)
+          
 
 //Category
 
