@@ -118,8 +118,8 @@ class UserController {
     {
       try
       {
-       const {id,name,emal} = req.user
-        const user = await userModel.findbById(req.user.id)
+       const {id,name,emal} = req.data
+        const user = await userModel.findbById(req.data.id)
         res.status(201).json({
           status:'success',
           message:'successfully',
