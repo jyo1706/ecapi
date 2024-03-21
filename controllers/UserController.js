@@ -93,8 +93,9 @@ class UserController {
             res.cookie("token", token);
             res
               .status(201)
-              .send({ sucess: true, message: "login successfully" });
+              .json({ success: true, message: "login successfully" });
             
+             
           } else {
             res
               .status(401)
