@@ -5,7 +5,7 @@ const userModel = require('../module/userDb')
 const auth = async(req,res,next)=>
 {
     const {token} = req.cookies
-    // console.log(token)
+    console.log(token)
     try
     {
         if(token)
