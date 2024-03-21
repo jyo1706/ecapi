@@ -12,6 +12,7 @@ router.post('/resinsert',UserController.insert)
 router.get('/userdisplay',UserController.display)
 router.post('/loginverify',UserController.loginverify)
 router.get('/me',auth,UserController.getuserdetail)
+router.get('/logout',UserController.logout)
            
 
 //Category
