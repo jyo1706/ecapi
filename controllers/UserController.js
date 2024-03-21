@@ -114,6 +114,23 @@ class UserController {
       console.log(error);
     }
   };
+  static getuserdetail = async(req,res)=>
+    {
+      try
+      {
+       const {id,name,emal} = req.user
+        const user = await userModel.findbById(req.user.id)
+        res.status(201).json({
+          status:'success',
+          message:'successfully',
+          user
+        
+      })
+      catch(error)
+      {
+        console.log(error)
+      }
+    }
 }
 
 module.exports = UserController;
