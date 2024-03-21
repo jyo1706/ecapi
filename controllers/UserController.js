@@ -126,6 +126,7 @@ class UserController {
           user
         
       })
+      }
       catch(error)
       {
         console.log(error)
