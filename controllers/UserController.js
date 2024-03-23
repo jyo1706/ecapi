@@ -217,7 +217,7 @@ class UserController {
            mobile:req.body.mobile,
         };
       }
-      const update_profile = await UserModel.findByIdAndUpdate(
+      const update_profile = await userModel.findByIdAndUpdate(
         req.data.id,
         data
       );
