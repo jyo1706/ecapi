@@ -219,7 +219,8 @@ class UserController {
         req.data.id,
         data
       );
-      res.redirect("/profile");
+      res.status(200)
+          .json({ status: "update", message: "update file" });
     } catch (error) {
       console.log(error);
     }
