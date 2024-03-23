@@ -204,6 +204,7 @@ class UserController {
         var data = {
           name: req.body.name,
           email: req.body.email,
+          mobile:req.body.mobile,
           image: {
             public_id: myimage.public_id,
             url: myimage.secure_url,
@@ -213,6 +214,7 @@ class UserController {
         var data = {
           name: req.body.name,
           email: req.body.email,
+           mobile:req.body.mobile,
         };
       }
       const update_profile = await UserModel.findByIdAndUpdate(
