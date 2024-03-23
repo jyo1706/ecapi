@@ -119,7 +119,7 @@ class UserController {
     {
       try
       {
-       const {id,name,email} = req.data
+       const {id,name,email,image} = req.data
         const user = await userModel.findById(req.data.id)
         // consoe.log("heelo auth")
         res.status(201).json({
@@ -190,7 +190,7 @@ class UserController {
 
   static profile_update = async (req, res) => {
     try {
-      const {id,email,name}=req.data
+      const {id,email,name,image}=req.data
       //console.log(req.files.image)
       if (req.files) {
         const user = await userModel.findById(req.data.id);
