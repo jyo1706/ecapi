@@ -222,7 +222,7 @@ class UserController {
         data
       );
       res.status(200)
-          .json({ status: "update", message: "update file" });
+          .json({ status: "update", message: "update file",data });
     } catch (error) {
       console.log(error);
     }
