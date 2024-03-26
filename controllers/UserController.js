@@ -166,7 +166,7 @@ class UserController {
               });
           } else {
             const newHashpassword = await bcrypt.hash(newpassword, 10);
-            const data= await userModel.findByIdAndUpdate(id, {
+             await userModel.findByIdAndUpdate(id, {
               $set: { password: newHashpassword },
             });
 
@@ -175,7 +175,7 @@ class UserController {
               .json({
                 status: "Success",
                 message: "Password Change successfully",
-                data
+                
               });
           }
         }
