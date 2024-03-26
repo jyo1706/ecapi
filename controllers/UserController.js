@@ -155,12 +155,12 @@ class UserController {
         if (!ismatch) {
           res
             .status(401)
-            .json({ status: "Failed", message: "Old Password is incorrect" });
+            .send({ status: "Failed", message: "Old Password is incorrect" });
         } else {
           if (newpassword !== cpassword) {
             res
               .status(401)
-              .json({
+              .send({
                 status: "Failed",
                 message: "Password and confirm password is not matched",
               });
@@ -172,7 +172,7 @@ class UserController {
 
             res
               .status(201)
-              .json({
+              .send({
                 status: "Success",
                 message: "Password Change successfully",
                 
@@ -182,7 +182,7 @@ class UserController {
       } else {
         res
           .status(400)
-          .json({ status: "Failed", message: "All field are required" });
+          .send({ status: "Failed", message: "All field are required" });
       }
     } catch (error) {
       console.log(error);
